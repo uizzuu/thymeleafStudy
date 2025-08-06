@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Variable Object</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    margin: 30px 20px;
+    color: #111;
+    }
+
+    ul,ol,li{
+    list-style: none;
+    }
+
+    a{
+    text-decoration: none;
+    color : #111;
+    }
+
+    h2+h3{
+    font-weight: 500;
+    color: #999;
+    }
+
+    p{
+    color : #999;
+    }
+  </style>
+</head>
+<body>
+<h2>SpringEL 표현식</h2>
+<h3>SpringEL : Spring Expression Language</h3>
+<a href="/">
+  ⚙ 돌아가기
+</a>
+<br/><br/>
+
+<ul>
+  <h4>Member Object</h4>
+    <li>이름 :
+        <span th:text="${member.memberName}">장원영</span>
+    </li>
+    <li>나이 : [[${member.memberAge}]]세</li>
+    <li>주소 :
+        <span th:text="${member.getMemberAddress}">서울</span>
+    </li>
+</ul>
+<br/>
+<ul>
+    <h4>List 출력하기</h4>
+    <li>이름 :
+        <span th:text="${list[0].memberName}">장원영</span>
+    </li>
+    <li>나이 : [[${list[0].memberAge}]]세</li>
+    <li>주소 :
+        <span th:text="${list[0].getMemberAddress}">서울</span>
+    </li>
+</ul>
+<br/>
+<ul>
+    <h4>Map 출력하기</h4>
+    <li>이름 :
+        <span th:text="${map['m1'].memberName}">장원영</span>
+    </li>
+    <li>나이 : [[${map['m1'].memberAge}]]세</li>
+    <li>주소 :
+        <span th:text="${map['m1'].getMemberAddress}">서울</span>
+    </li>
+    <br/>
+    <li>이름 :
+        <span th:text="${map['m2'].memberName}">장원영</span>
+    </li>
+    <li>나이 : [[${map['m2'].memberAge}]]세</li>
+    <li>주소 :
+        <span th:text="${map['m2'].getMemberAddress}">서울</span>
+    </li>
+</ul>
+</body>
+</html>

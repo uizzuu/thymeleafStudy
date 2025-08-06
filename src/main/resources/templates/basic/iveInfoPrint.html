@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Ive Info Print</title>
@@ -41,9 +41,10 @@
 <br/><br/>
 
 <ul>
-<h4>장원영</h4>
-  <li>이름 : 장원영</li>
-  <li>나이 : 만20세</li>
+<!--<h4>장원영</h4>-->
+  <li>이름 : [[${name}]]</li>
+  <li>나이 : [[${age}]]세</li>
+  <li th:text="${data}"></li>
 </ul>
 </body>
 </html>

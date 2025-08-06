@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    width: 90%;
+    margin: 30px auto;
+    color: #111;
+    }
+
+    table{
+    border: 1px solid #111;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    h2{
+    margin-bottom:8px;
+    }
+
+    th, td{
+    border: 1px solid #111;
+    width:100%3;
+    text-align: left;
+    padding: 4px 10px;
+    vertical-align: top;
+    }
+
+    ul,ol,li{
+    list-style: none;
+    }
+
+    a{
+    text-decoration: none;
+    color : #111;
+    }
+
+    h2+h3{
+    font-weight: 500;
+    color: #999;
+    }
+
+    p{
+    color : #999;
+    }
+
+    .gugudan{
+    margin-left : 4px;
+    }
+  </style>
+    <title>For Each & If</title>
+</head>
+<h2 id="h2_top">For Each</h2>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<body>
+<br/><br/>
+<h2>IVE Member</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Address</th>
+  </tr>
+  <tr th:each="member : ${ive}">
+    <td th:text="${member.memberName}">이름</td>
+    <td>[[${member.memberAge}]]</td>
+    <td th:text="${member.memberAddress}">주소</td>
+  </tr>
+</table>
+<br/>
+
+<h2>구구단 3단 출력</h2>
+<div class="gugudan" th:each="i : ${#numbers.sequence(1, 9)}">
+  <span th:text="|3 x ${i} = ${i * 3}|"></span>
+</div>
+<br/>
+
+<h2>여러가지 Each 구문 사용법</h2>
+<table>
+  <tr>
+<!--    <th>Index</th>-->
+    <th>No</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Others</th>
+  </tr>
+  <tr th:each="member, i : ${ive}" th:object="${member}">
+<!--    <td th:text="${i.index}">인덱스</td>-->
+    <td>[[${i.count}]]</td>
+    <td>[[*{memberName}]]</td>
+    <td>[[*{memberAddress}]]</td>
+    <td>
+      size = [[${i.size}]]<br/>
+      even = [[${i.even}]]<br/>
+      odd = [[${i.odd}]]<br/>
+      first = [[${i.first}]]<br/>
+      last = [[${i.last}]]
+    </td>
+  </tr>
+</table>
+<br/><br/>
+<h2>If</h2>
+<a th:href="@{#h2_top}">
+  ⚙ 맨 위로
+</a>
+<br/><br/>
+<table>
+  <tr>
+    <th>이름</th>
+    <th>나이</th>
+    <th>구분</th>
+  </tr>
+  <tr th:each="x : ${ive}" th:object="${x}">
+    <td>[[*{memberName}]]</td>
+    <td>[[*{memberAge}]]</td>
+    <td>
+      <span th:text="10대" th:if="*{memberAge} < 20"></span>
+      <span th:text="20대" th:if="*{memberAge} >= 20"></span>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

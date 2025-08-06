@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <style>
@@ -30,6 +30,10 @@
         p{
         color : #999;
         }
+
+        .operator div{
+        margin-left : 8px;
+        }
     </style>
     <title>Main</title>
 </head>
@@ -58,7 +62,29 @@
 <br/><br/>
 <h3>모델로 데이터 출력하기</h3>
 <a href="/basic/iveInfoPrint">
-    🖤아이브
+    🖤아이브정보
 </a>
+<a href="/basic/variable">
+    🖤SpringEL 표현식
+</a>
+<a href="/product/info">
+    🖤Product 클래스 생성
+</a>
+<br/><br/>
+<h3>반복문 : Each 구문</h3>
+<a th:href="@{/each}">🖤Each 반복문 테스트</a>
+<br/><br/>
+<h3>경로변수 + 쿼리파라미터 테스트</h3>
+<a th:href="@{/link}">🖤테스트 페이지</a>
+<br/><br/>
+<div class="operator">
+<h3>연산자</h3>
+<h4>🖤비교연산</h4>
+<div>1 == 2 : <span th:text="1 == 2"></span></div>
+<div>1 != 2 : <span th:text="1 != 2"></span></div>
+<div>1 >= 2 : <span th:text="1 >= 2"></span></div>
+<h4>🖤삼항연산</h4>
+<div>10 % 2 : <span th:text="(10 % 2 == 0)?'짝수':'홀수'"></span></div>
+</div>
 </body>
 </html>

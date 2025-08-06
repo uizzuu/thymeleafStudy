@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Info</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    margin: 30px 20px;
+    color: #111;
+    }
+
+    ul,ol,li{
+    list-style: none;
+    }
+
+    a{
+    text-decoration: none;
+    color : #111;
+    }
+
+    h2+h3{
+    font-weight: 500;
+    color: #999;
+    }
+
+    p{
+    color : #999;
+    }
+  </style>
+</head>
+<body>
+<h2>상품 정보</h2>
+<a href="/">
+  ⚙ 돌아가기
+</a>
+<br/><br/>
+<ul>
+  <h3>List</h3>
+  <hr/>
+  <h4>[상품1]</h4>
+  <li>상품명 :
+    <span th:text="${list[0].name}"></span>
+  </li>
+  <li>가격 : [[${list[0].price}]]원</li>
+  <li>재고 :
+    <span th:text="${list[0].stock}"></span>개
+  </li>
+  <hr/>
+  <h4>[상품2]</h4>
+  <li>상품명 :
+    <span th:text="${list[1].name}"></span>
+  </li>
+  <li>가격 : [[${list[1].price}]]원</li>
+  <li>재고 :
+    <span th:text="${list[1].stock}"></span>개
+  </li>
+  <hr/>
+  <br/>
+  <h3>Map</h3>
+  <hr/>
+  <h4>[상품1]</h4>
+  <li>상품명 :
+    <span th:text="${map['p1'].name}"></span>
+  </li>
+  <li>가격 : [[${map['p1'].price}]]원</li>
+  <li>재고 :
+    <span th:text="${map['p1'].stock}"></span>개
+  </li>
+  <hr/>
+  <h4>[상품2]</h4>
+  <li>상품명 :
+    <span th:text="${map['p2'].name}"></span>
+  </li>
+  <li>가격 : [[${map['p2'].price}]]원</li>
+  <li>재고 :
+    <span th:text="${map['p2'].stock}"></span>개
+  </li>
+  <hr/>
+</ul>
+</body>
+</html>
